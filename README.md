@@ -32,3 +32,8 @@ Para cada tabla se incluyen procedimientos de inserción, actualización y lista
 Este proyecto se creó desde cero porque no se proporcionó el esquema oficial de la base de datos de la clase. Por eso, las tablas y relaciones son una propuesta académica de ejemplo y deben compararse con las indicaciones del profesor. El script está diseñado para Microsoft SQL Server y no para MySQL o PostgreSQL.
 
 La ejecución real en SQL Server todavía debe verificarse en una instancia de SQL Server antes de considerar el proyecto probado.
+
+## Datos del estudiante
+
+- **Nombre:** Oswaldo Bernardo Acosta Pérez
+- **Número de carné:** 240582
