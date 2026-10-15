@@ -4,15 +4,8 @@ Base de datos: DB_SCRUM_PLANNING
 Motor propuesto: Microsoft SQL Server
 
 NOTA:
-Como no se proporciono un esquema previo de la base de datos, este script crea
-una estructura inicial de ejemplo para gestionar proyectos Scrum. Incluye
-procedimientos almacenados para INSERTAR, ACTUALIZAR y LISTAR con paginacion
-(OFFSET / FETCH) para todas las tablas definidas aqui.
+procedimientos almacenados para INSERTAR, ACTUALIZAR y LISTAR .
 
-INSTRUCCIONES:
-1. Abrir SQL Server Management Studio (SSMS).
-2. Abrir este archivo y ejecutar el script completo.
-3. Para probar los procedimientos, revisar los ejemplos al final.
 */
 
 IF DB_ID(N'DB_SCRUM_PLANNING') IS NULL
@@ -381,44 +374,3 @@ BEGIN
     FETCH NEXT @TamanoPagina ROWS ONLY;
 END;
 GO
-
-/* =========================================================
-   EJEMPLOS DE PRUEBA (DESCOMENTAR PARA EJECUTAR)
-   Ejecutar en orden para respetar las relaciones entre tablas.
-   =========================================================
-EXEC dbo.sp_Usuario_Insertar
-    @Nombre = N'Ana López',
-    @Correo = N'ana@example.com',
-    @Rol = N'Scrum Master',
-    @Activo = 1;
-
-EXEC dbo.sp_Proyecto_Insertar
-    @Nombre = N'Sistema de planificación Scrum',
-    @Descripcion = N'Proyecto académico para organizar sprints y tareas',
-    @FechaInicio = '2026-10-01',
-    @FechaFin = '2026-12-15',
-    @Estado = N'En progreso',
-    @ResponsableID = 1;
-
-EXEC dbo.sp_Sprint_Insertar
-    @ProyectoID = 1,
-    @Nombre = N'Sprint 1',
-    @Objetivo = N'Preparar la estructura inicial',
-    @FechaInicio = '2026-10-01',
-    @FechaFin = '2026-10-14',
-    @Estado = N'En progreso';
-
-EXEC dbo.sp_Tarea_Insertar
-    @SprintID = 1,
-    @AsignadoA = 1,
-    @Titulo = N'Diseñar las tablas',
-    @Descripcion = N'Crear el modelo inicial de la base de datos',
-    @Prioridad = N'Alta',
-    @Estado = N'Pendiente',
-    @EstimacionHoras = 4;
-
-EXEC dbo.sp_Usuario_Listar @Pagina = 1, @TamanoPagina = 10;
-EXEC dbo.sp_Proyecto_Listar @Pagina = 1, @TamanoPagina = 10;
-EXEC dbo.sp_Sprint_Listar @Pagina = 1, @TamanoPagina = 10;
-EXEC dbo.sp_Tarea_Listar @Pagina = 1, @TamanoPagina = 10;
-*/
